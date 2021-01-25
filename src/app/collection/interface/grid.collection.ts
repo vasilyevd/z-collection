@@ -14,4 +14,6 @@ export interface IGridCollection {
   resetFilter();
   currentPage(page?: number);
   load(): Observable<GridResponse<any>>;
+
+  useFilter(filterObject);
 }

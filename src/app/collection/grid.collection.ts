@@ -15,6 +15,8 @@ export class GridActiveCollection<T = any> extends ApiActiveCollection implement
 
   dataProvider: GridCollectionApiDataProvider;
 
+  filter: object = {};
+
   protected dataProviderConstructor(data): void {
     this.dataProvider = new GridCollectionApiDataProvider(this, data, this.strategy);
   }
@@ -52,5 +54,9 @@ export class GridActiveCollection<T = any> extends ApiActiveCollection implement
   }
 
   resetFilter() {
+  }
+
+  useFilter(filterObject: object) {
+    this.filter = filterObject;
   }
 }
