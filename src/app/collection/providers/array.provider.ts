@@ -1,9 +1,9 @@
 import {ICollectionArrayDataProvider} from './interface';
 import {Data} from '../../core/types';
-import {$Util} from '../../core/utils/utils';
 import {of} from 'rxjs';
-import {GridResponse, PaginationResponse} from '../../api/interface/response.interface';
+import {GridResponse, PaginationResponse} from '../../api/interface';
 import {IArrayActiveCollection, IGridCollection, SearchSettings} from '../interface';
+import {$Util} from '../../core/utils/common';
 
 /**
  * Array Data Provider use Collection data as storage of raw data.

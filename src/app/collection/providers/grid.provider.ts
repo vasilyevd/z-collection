@@ -22,6 +22,7 @@ export class GridCollectionApiDataProvider extends CollectionApiDataProvider {
     console.log('GridCollectionApiDataProvider.load...');
     // @TODO: make not GridSearch Response - because without SearchSettings (but if BE return response as Search - use it)
     const url = this.getUrlProvider()?.load();
+    console.log('load url:', url);
     const search = this.collection.getSearchSettings();
     return this.apiService.GridSearch(url, search);
   }

@@ -1,12 +1,12 @@
 import {ModelsCollection} from './models.collection';
 import {ICollectionDataProvider} from './providers';
 import {CollectionStartStrategy} from './strategy';
-import {$Util} from '../core/utils/utils';
 import {CollectionPagination} from './pagination';
 import {Subject} from 'rxjs';
-import {ListingResponse} from '../api/interface/response.interface';
+import {ListingResponse} from '../api/interface';
 import {delay, finalize} from 'rxjs/operators';
 import {CollectionConfiguration, IActiveCollection, ICollectionPagination} from './interface';
+import {$Util} from '../core/utils/common';
 
 // @todo ActiveCollection
 export abstract class ActiveCollection extends ModelsCollection implements IActiveCollection {

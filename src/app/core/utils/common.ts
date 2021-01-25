@@ -8,7 +8,7 @@ const isString = (str) => Object.prototype.toString.call(str) === '[object Strin
 
 const isNumber = (num) => Object.prototype.toString.call(num) === '[object Number]';
 
-const isUndefined = (bool) => Object.prototype.toString.call(bool) === '[object Undefined]';
+const isUndefined = (v) => Object.prototype.toString.call(v) === '[object Undefined]' || typeof v === 'undefined';
 
 const isNull = (bool) => Object.prototype.toString.call(bool) === '[object Null]';
 

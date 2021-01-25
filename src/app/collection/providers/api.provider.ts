@@ -1,9 +1,9 @@
-import {ICollectionApiDataProvider, ICollectionDataProvider} from './interface';
-import {IAppApiService} from '../../api/interface/api.interface';
-import {IApiActiveCollection} from '../interface/active.collection';
+import {ICollectionApiDataProvider} from './interface';
 import {CollectionStartStrategy} from '../strategy';
-import {ServiceLocator} from '../../core/ServiceLocator';
 import {Data} from '../../core/types';
+import {IAppApiService} from '../../api/interface';
+import {IApiActiveCollection} from '../interface';
+import {ServiceLocator} from '../../core/ServiceLocator';
 
 
 /**
@@ -99,7 +99,3 @@ export class CollectionApiDataProvider implements ICollectionApiDataProvider {
     Or implement saving of collection models and partial update collection on success`);
   }
 }
-
-
-let b: ICollectionApiDataProvider;
-b.load();

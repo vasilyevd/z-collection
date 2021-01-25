@@ -1,7 +1,7 @@
 import {Collection} from './base.collection';
-import {$Util} from '../core/utils/utils';
 import {Data} from '../core/types';
 import {CollectionConfiguration, CollectionItemFactory, IModelsCollection} from './interface';
+import {$Util} from '../core/utils/common';
 
 export class ModelsCollection extends Collection implements IModelsCollection {
 

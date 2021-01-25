@@ -1,3 +1,6 @@
+import {ShippingRuleAction} from '../shared/action.types';
+import {Float} from '../../../core/utils/types';
+
 export type IShippingRuleData = {
   id?: number;
   enabled?: boolean;
