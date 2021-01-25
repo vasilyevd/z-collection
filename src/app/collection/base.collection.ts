@@ -1,5 +1,5 @@
 import {ICollection} from './interface';
-import {$Util} from '../core/utils';
+import {$Util} from '../core/utils/utils';
 
 // @todo: Collection
 export class Collection<T = any> implements ICollection {

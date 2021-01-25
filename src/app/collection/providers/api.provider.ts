@@ -1,5 +1,5 @@
 import {ICollectionApiDataProvider, ICollectionDataProvider} from './interface';
-import {IAppApiService} from '../../api/api.interface';
+import {IAppApiService} from '../../api/interface/api.interface';
 import {IApiActiveCollection} from '../interface/active.collection';
 import {CollectionStartStrategy} from '../strategy';
 import {ServiceLocator} from '../../core/ServiceLocator';

@@ -1,10 +1,10 @@
 import {ModelsCollection} from './models.collection';
 import {ICollectionDataProvider} from './providers';
 import {CollectionStartStrategy} from './strategy';
-import {$Util} from '../core/utils';
+import {$Util} from '../core/utils/utils';
 import {CollectionPagination} from './pagination';
 import {Subject} from 'rxjs';
-import {ListingResponse} from '../api/response.interface';
+import {ListingResponse} from '../api/interface/response.interface';
 import {delay, finalize} from 'rxjs/operators';
 import {CollectionConfiguration, IActiveCollection, ICollectionPagination} from './interface';
 

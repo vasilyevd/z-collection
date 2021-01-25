@@ -3,7 +3,7 @@
  */
 import {Injector} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {IAppApiService} from '../api/api.interface';
+import {IAppApiService} from '../api/interface/api.interface';
 
 declare class ServiceLocator {
   static injector: Injector;

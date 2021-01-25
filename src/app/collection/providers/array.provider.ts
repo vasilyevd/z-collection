@@ -1,8 +1,8 @@
 import {ICollectionArrayDataProvider} from './interface';
 import {Data} from '../../core/types';
-import {$Util} from '../../core/utils';
+import {$Util} from '../../core/utils/utils';
 import {of} from 'rxjs';
-import {GridResponse, PaginationResponse} from '../../api/response.interface';
+import {GridResponse, PaginationResponse} from '../../api/interface/response.interface';
 import {IArrayActiveCollection, IGridCollection, SearchSettings} from '../interface';
 
 /**

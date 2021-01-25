@@ -4,7 +4,7 @@ import {CollectionArrayDataProvider, ICollectionArrayDataProvider} from './provi
 import {CollectionPagination} from './pagination';
 import {PAGINATION_DEFAULT} from '../pagination/default';
 import {Observable} from 'rxjs';
-import {ListingResponse} from '../api/response.interface';
+import {ListingResponse} from '../api/interface/response.interface';
 
 export class ArrayActiveCollection extends ActiveCollection implements IArrayActiveCollection, IGridCollection {
 

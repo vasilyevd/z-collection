@@ -1,5 +1,5 @@
 import {Observable} from 'rxjs';
-import {GridResponse, ListingResponse} from '../../api/response.interface';
+import {GridResponse, ListingResponse} from '../../api/interface/response.interface';
 import {CollectionStartStrategy} from '../strategy';
 import {IActiveCollection} from '../interface';
 

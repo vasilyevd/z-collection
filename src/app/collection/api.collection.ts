@@ -1,5 +1,5 @@
 import {ActiveCollection} from './active.collection';
-import {ActiveUrlProvider} from '../api/api.interface';
+import {ActiveUrlProvider} from '../api/interface/api.interface';
 import {CollectionPagination} from './pagination';
 import {IApiActiveCollection} from './interface';
 import {CollectionApiDataProvider, ICollectionApiDataProvider} from './providers';

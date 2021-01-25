@@ -1,8 +1,8 @@
 import {IModelsCollection} from './models.collection';
 import {Observable} from 'rxjs';
 import {ICollectionDataProvider} from '../providers/interface';
-import {ListingResponse} from '../../api/response.interface';
-import {ActiveUrlProvider} from '../../api/api.interface';
+import {ListingResponse} from '../../api/interface/response.interface';
+import {ActiveUrlProvider} from '../../api/interface/api.interface';
 
 /**
  * This Collection can load data from dataProvider

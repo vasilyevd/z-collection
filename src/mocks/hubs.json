@@ -1,0 +1,58 @@
+[
+  {
+    "id": 443,
+    "name": "Spring GDS - MAD",
+    "contact_name": "Lorenzo",
+    "phone": "",
+    "email": "lorenzo.redondo@spring-gds.com",
+    "hub_address": "{\"addr1\":\"c\\/Torres Quevedo\",\"addr2\":\"\",\"additional_address\":{\"house_number\":\"1\"},\"city\":\"Coslada\",\"zip\":\"28823\",\"state\":\"\",\"country\":\"ES\"}",
+    "hub_country": "",
+    "covered_area": "{\"country\":[\"AT\",\"BE\",\"CZ\",\"DK\",\"FI\",\"FR\",\"DE\",\"GR\",\"HU\",\"IE\",\"IT\",\"LU\",\"NL\",\"ES\"]}",
+    "status": 1,
+    "shipping_services": "[{\"carrier\":\"70\",\"service_id\":\"211\",\"avg_delivery_info\":\"\",\"price\":\"0.00\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"210\",\"avg_delivery_info\":\"\",\"price\":\"0.13\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"209\",\"avg_delivery_info\":\"\",\"price\":\"0.00\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"208\",\"avg_delivery_info\":\"\",\"price\":\"0.93\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"207\",\"avg_delivery_info\":\"\",\"price\":\"0.00\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"205\",\"avg_delivery_info\":\"\",\"price\":\"0.00\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"206\",\"avg_delivery_info\":\"\",\"price\":\"8.11\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"200\",\"avg_delivery_info\":\"\",\"price\":\"4\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"199\",\"avg_delivery_info\":\"\",\"price\":\"5\",\"currency\":\"USD\",\"hub_service_zone\":\"2\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"201\",\"avg_delivery_info\":\"\",\"price\":\"14.88\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"202\",\"avg_delivery_info\":\"\",\"price\":\"2.13\",\"currency\":\"EUR\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"203\",\"avg_delivery_info\":\"\",\"price\":\"11.11\",\"currency\":\"GBP\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"204\",\"avg_delivery_info\":\"\",\"price\":\"7.06\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]}]",
+    "clients_ids": ",2023,2018,2031,",
+    "final_dest_client_ids": ""
+  },
+  {
+    "id": 444,
+    "name": "Radar Hub 2",
+    "contact_name": "Alexander",
+    "phone": "",
+    "email": "amazur@xmlshop.com",
+    "hub_address": "{\"zip\": \"2526KP\", \"city\": \"Den Haag\", \"addr1\": \"Herderslaan\", \"addr2\": \"\", \"state\": \"\", \"country\": \"NL\", \"additional_address\": {\"house_number\": \"66\"}}",
+    "hub_country": "",
+    "covered_area": "{\"country\":[\"BG\",\"HR\",\"CY\",\"EE\",\"LV\",\"LT\",\"MT\",\"NL\",\"NO\",\"PL\",\"PT\",\"RO\"]}",
+    "status": 1,
+    "shipping_services": "[{\"carrier\":\"70\",\"service_id\":\"211\",\"avg_delivery_info\":\"\",\"price\":\"0.00\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"210\",\"avg_delivery_info\":\"\",\"price\":\"0.13\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"209\",\"avg_delivery_info\":\"\",\"price\":\"0.00\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"208\",\"avg_delivery_info\":\"\",\"price\":\"0.93\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"207\",\"avg_delivery_info\":\"\",\"price\":\"0.00\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"205\",\"avg_delivery_info\":\"\",\"price\":\"0.00\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"206\",\"avg_delivery_info\":\"\",\"price\":\"8.11\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"200\",\"avg_delivery_info\":\"\",\"price\":\"4\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"199\",\"avg_delivery_info\":\"\",\"price\":\"5\",\"currency\":\"USD\",\"hub_service_zone\":\"2\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"201\",\"avg_delivery_info\":\"\",\"price\":\"14.88\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"202\",\"avg_delivery_info\":\"\",\"price\":\"2.13\",\"currency\":\"EUR\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"203\",\"avg_delivery_info\":\"\",\"price\":\"11.11\",\"currency\":\"GBP\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"204\",\"avg_delivery_info\":\"\",\"price\":\"7.06\",\"currency\":\"USD\",\"hub_service_zone\":\"all\",\"custom_price\":[]}]",
+    "clients_ids": ",2023,2018,2031,",
+    "final_dest_client_ids": ""
+  },
+  {
+    "id": 445,
+    "name": "Spring GDS - ES MAD (TEST)",
+    "contact_name": "",
+    "phone": "",
+    "email": "",
+    "hub_address": "{\"addr1\":\"c\\/Torres Quevedo\",\"addr2\":\"\",\"additional_address\":{\"house_number\":\"1\"},\"city\":\"Coslada Madrid\",\"zip\":\"28823\",\"state\":\"\",\"country\":\"ES\"}",
+    "hub_country": "",
+    "covered_area": "{\"country\":[\"AT\",\"BE\",\"BG\",\"HR\",\"CZ\",\"DK\",\"EE\",\"FI\",\"FR\",\"DE\",\"GR\",\"HU\",\"IE\",\"IT\",\"LV\",\"LT\",\"LU\",\"MT\",\"NL\",\"PL\",\"PT\",\"RO\",\"SK\",\"SI\",\"ES\",\"SE\",\"GB\"]}",
+    "status": 1,
+    "shipping_services": "[{\"carrier\":\"70\",\"service_id\":\"201\",\"avg_delivery_info\":\"<a href=\\\"https:\\/\\/www.parcelconnect.ie\\/map\\/\\\" target=\\\"_blank\\\" class=\\\"main-menu__link\\\">Find Fastway Store<\\/a>\",\"price\":\"0\",\"currency\":\"EUR\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"206\",\"avg_delivery_info\":\"\",\"price\":\"0\",\"currency\":\"EUR\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"199\",\"avg_delivery_info\":\"\",\"price\":\"0\",\"currency\":\"EUR\",\"hub_service_zone\":\"all\",\"custom_price\":[]},{\"carrier\":\"70\",\"service_id\":\"202\",\"avg_delivery_info\":\"<a href=\\\"https:\\/\\/www.myhermes.de\\/paketshop\\/\\\" target=\\\"_blank\\\" class=\\\"main-menu__link\\\">Find Hermes Parcelshop<\\/a>\",\"price\":\"0\",\"currency\":\"EUR\",\"hub_service_zone\":\"all\",\"custom_price\":[]}]",
+    "clients_ids": ",2023,2014,2031,",
+    "final_dest_client_ids": ""
+  },
+  {
+    "id": 446,
+    "name": "Spring GDS - IT (Test)",
+    "contact_name": "Karst",
+    "phone": "",
+    "email": "integrations.cbs@postnl.nl",
+    "hub_address": "{\"addr1\":\"Via Manzoni 19\",\"addr2\":\"\",\"additional_address\":{\"house_number\":\"\"},\"city\":\"Montano Lucino (CO)\",\"zip\":\"22070\",\"state\":\"\",\"country\":\"IT\"}",
+    "hub_country": "",
+    "covered_area": "{\"country\":[\"AT\",\"BE\",\"BG\",\"HR\",\"CY\",\"CZ\",\"DK\",\"EE\",\"FI\",\"FR\",\"DE\",\"GR\",\"HU\",\"IE\",\"IT\",\"LV\",\"LT\",\"LU\",\"MT\",\"NL\",\"NO\",\"PL\",\"PT\",\"RO\",\"SK\",\"SI\",\"ES\",\"SE\",\"CH\",\"GB\"]}",
+    "status": 1,
+    "shipping_services": "[{\"carrier\":\"84\",\"service_id\":\"220\",\"avg_delivery_info\":\"\",\"price\":\"0\",\"currency\":\"EUR\",\"hub_service_zone\":\"3\",\"custom_price\":[]},{\"carrier\":\"84\",\"service_id\":\"221\",\"avg_delivery_info\":\"\",\"price\":\"0\",\"currency\":\"EUR\",\"hub_service_zone\":\"3\",\"custom_price\":[]},{\"carrier\":\"84\",\"service_id\":\"222\",\"avg_delivery_info\":\"\",\"price\":\"0\",\"currency\":\"EUR\",\"hub_service_zone\":\"2\",\"custom_price\":[]},{\"carrier\":\"84\",\"service_id\":\"223\",\"avg_delivery_info\":\"\",\"price\":\"0\",\"currency\":\"EUR\",\"hub_service_zone\":\"3\",\"custom_price\":[]},{\"carrier\":\"84\",\"service_id\":\"224\",\"avg_delivery_info\":\"\",\"price\":\"0\",\"currency\":\"EUR\",\"hub_service_zone\":\"3\",\"custom_price\":[]},{\"carrier\":\"84\",\"service_id\":\"227\",\"avg_delivery_info\":\"\",\"price\":\"0\",\"currency\":\"EUR\",\"hub_service_zone\":\"2\",\"custom_price\":[]}]",
+    "clients_ids": ",2025,2018,2030,2031,",
+    "final_dest_client_ids": ""
+  }
+]

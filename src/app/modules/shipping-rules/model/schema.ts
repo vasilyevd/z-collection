@@ -1,0 +1,26 @@
+import {JS_TYPE} from '../../../core/utils/types';
+
+export const shippingRuleDataSchema = {
+  id: JS_TYPE.NUMBER,
+  enabled: JS_TYPE.BOOLEAN,
+  action: JS_TYPE.STRING,
+  service_id: JS_TYPE.NUMBER,
+  hub_id: JS_TYPE.NUMBER,
+  price_currency: JS_TYPE.STRING,
+  price_value: JS_TYPE.STRING,
+  priority: JS_TYPE.NUMBER,
+  execution: JS_TYPE.NUMBER,
+  spring_country: JS_TYPE.STRING,
+  client_id: JS_TYPE.NUMBER,
+  country_code: JS_TYPE.STRING,
+  zip: JS_TYPE.STRING,
+  dim_max: JS_TYPE.STRING,
+  dim_sum_max: JS_TYPE.STRING,
+  dim_uom: JS_TYPE.STRING,
+  value_max: JS_TYPE.STRING,
+  value_min: JS_TYPE.STRING,
+  value_currency: JS_TYPE.STRING,
+  weight_max: JS_TYPE.STRING,
+  weight_min: JS_TYPE.STRING,
+  weight_uom: JS_TYPE.NUMBER,
+};

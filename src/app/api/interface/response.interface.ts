@@ -1,5 +1,5 @@
 import {HttpHeaders} from '@angular/common/http';
-import {Structure} from '../core/types';
+import {Structure} from '../../core/types';
 
 export interface AppApiResponse<T> {
   result: T;

@@ -1,6 +1,6 @@
 import {Observable} from 'rxjs';
 import {IPaginationModel} from '../pagination/interface';
-import {GridResponse} from '../api/response.interface';
+import {GridResponse} from '../api/interface/response.interface';
 import {PAGINATION_DEFAULT} from '../pagination/default';
 
 import {IGridCollection} from './interface';
