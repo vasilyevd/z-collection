@@ -1,128 +1,6 @@
 import {Injectable} from '@angular/core';
-import {$Util} from '../../../core/utils/common';
-import {isObservable, Observable, of} from 'rxjs';
-
-class AttributeFilter {
-  private _type;
-  private _value;
-  private _label;
-  private _hint;
-  private _enum_list: any[];
-
-  constructor(name, config) {
-    console.log('CREATED-ATTRIBUTE-FILTER-WITH-CONFIG', config);
-
-    this._label = config.label || null;
-    this._hint = config.hint || null;
-    this._type = config.type || 'ILIKE_STRING';
-
-    let configEnum = config.enum;
-
-    console.log('ENUM-TYPES-DETECTION:');
-    console.log('isObservable', isObservable(configEnum));
-    console.log('isFunction', $Util.isFunction(configEnum));
-    console.log('isArray', $Util.isArray(configEnum));
-
-    if($Util.isFunction(configEnum)) {
-      console.log('  ENUM-IS-FUNCTION');
-      const builderFn: (filter) => any[] = configEnum;
-      configEnum = builderFn(this);
-    }
-
-    // got observable
-    if(isObservable(configEnum)) {
-      const observableEnum: Observable<any[]> = configEnum as Observable<any[]>;
-      console.log('  USE-UNUM-FROM-OBSERVABLE-OBJECT');
-      observableEnum.subscribe(newEnumList => {
-        console.log('   GOT ENUM from observer', newEnumList);
-        this._enum_list = newEnumList;
-      });
-    }
-    // got static enum list
-    else if (configEnum) {
-      console.log('  USE STATIC ENUM');
-      this._enum_list = configEnum;
-    }
-  }
-
-  getValue() {
-    return this._value;
-  }
-
-  setValue(value) {
-    this._value = value;
-  }
-
-  setEnum(list) {
-    this._enum_list = list;
-  }
-
-  getEnum() {
-    return this._enum_list;
-  }
-
-  /**
-   * Provide type
-   */
-  getType() {
-    return this._type;
-  }
-
-  public onChange: () => void
-}
-
-abstract class FilterService {
-
-  protected abstract $config();
-
-  private _filters = {};
-
-  private config;
-
-  private _attributes;
-
-  private _eventCallbacks = [];
-
-  constructor(config?) {
-    console.log('FILTER-SERVICE', 'CONSTRUCTOR');
-    config = config ?? this.$config();
-
-    Object.keys(config).forEach((attribute) => {
-      this.addFilter(attribute, config[attribute]);
-    });
-  }
-
-  getConfig() {
-    return this.config;
-  };
-
-  addFilter(attribute, config) {
-    this._filters[attribute] = new AttributeFilter(attribute, config);
-  }
-
-  getFilter(attribute) {
-    return this._filters[attribute];
-  };
-
-  hasFilter(attribute) {
-    return Boolean(this._filters[attribute]);
-  };
-
-  getFilters() {
-    return this._filters;
-  };
-
-  toRequest() {
-    return {};
-  };
-
-  addOnChangeEventListener(fn) {
-    if ($Util.isFunction(fn)) {
-      this._eventCallbacks.push(fn);
-    }
-  }
-
-}
+import {of} from 'rxjs';
+import {FilterService} from '../../../filters/filter-servise';
 
 @Injectable()
 export class ShippingRulesFilter extends FilterService {
@@ -217,10 +95,18 @@ export class ShippingRulesFilter extends FilterService {
     }
   }
 
+  /**
+   * Use constructor for pre-configure filter
+   * @??? can inject some and use it in config?
+   * @??? can extend after create base from parent?
+   */
   constructor() {
     super();
   }
 
+  /**
+   * Custom function for return static enum list
+   */
   someEnumListFunction(filter) {
     // console.log('someEnumListFunction RUNNED');
     return [
@@ -229,9 +115,11 @@ export class ShippingRulesFilter extends FilterService {
     ];
   }
 
+  /**
+   * Custom function for return enum as Observable resource
+   */
   gotObservable() {
     return of<{k:string, v: number}[]>([{k:'fob',v: 10}, {k:'fob2', v:30}] )
   }
-
 
 }

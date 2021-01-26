@@ -1,12 +1,14 @@
 import {Observable} from 'rxjs';
 import {IPaginationModel} from '../pagination/interface';
-import {GridResponse} from '../api/interface/response.interface';
 import {PAGINATION_DEFAULT} from '../pagination/default';
 
 import {IGridCollection} from './interface';
 import {CollectionPagination} from './pagination';
 import {ApiActiveCollection} from './api.collection';
 import {GridCollectionApiDataProvider} from './providers';
+import {IFilterService} from '../filters/interface';
+import {GridResponse} from '../api/interface';
+import {SearchSettings} from './interface/search';
 
 export class GridActiveCollection<T = any> extends ApiActiveCollection implements IGridCollection {
 
@@ -15,7 +17,7 @@ export class GridActiveCollection<T = any> extends ApiActiveCollection implement
 
   dataProvider: GridCollectionApiDataProvider;
 
-  filter: object = {};
+  protected filter: IFilterService;
 
   protected dataProviderConstructor(data): void {
     this.dataProvider = new GridCollectionApiDataProvider(this, data, this.strategy);
@@ -29,6 +31,11 @@ export class GridActiveCollection<T = any> extends ApiActiveCollection implement
   }
 
   getFilter() {
+    return this.filter;
+  }
+
+  setFilter(filter: IFilterService) {
+    this.filter = filter;
   }
 
 
@@ -40,9 +47,10 @@ export class GridActiveCollection<T = any> extends ApiActiveCollection implement
    * Provide Collection Search Object.
    * Based on Filter, Pagination and Sort
    */
-  getSearchSettings() {
+  getSearchSettings(): SearchSettings {
     return {
       pagination: this.getPagination(),
+      filter: SearchFilter
     };
   }
 
@@ -56,7 +64,7 @@ export class GridActiveCollection<T = any> extends ApiActiveCollection implement
   resetFilter() {
   }
 
-  useFilter(filterObject: object) {
+  useFilter(filterObject: IFilterService) {
     this.filter = filterObject;
   }
 }

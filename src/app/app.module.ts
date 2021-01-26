@@ -4,10 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {ServiceLocator} from './core/ServiceLocator';
 import {ApiModule} from './api/module';
+import { ShippingPageComponent } from './pages/shipping-page/shipping-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ShippingPageComponent,
   ],
   imports: [
     BrowserModule,

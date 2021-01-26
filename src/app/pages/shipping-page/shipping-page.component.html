@@ -1,0 +1,10 @@
+<p>shipping-page works!</p>
+
+<div class="" *ngFor="let item of collection.items" >
+  <div>{{item.data.id}} - {{item.data.hub_id}} - {{item.data.action}}</div>
+<!--  <div>{{item.data | json}}</div>-->
+</div>
+<div style="border: 1px solid gray; padding: 8px;">
+  <h5>Filter</h5>
+  <div><pre>{{collection.getFilter() | json}}</pre></div>
+</div>

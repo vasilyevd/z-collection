@@ -15,17 +15,6 @@ export class AppComponent implements OnInit {
 
   constructor(private filterSettings: ShippingRulesFilter) {}
 
-  ngOnInit(): void {
-    this.collection = new ShippingRulesCollection();
-    this.collection.load();
-
-    // tell collection about use this filter object
-    this.collection.useFilter(this.filterSettings);
-
-    // so, now collection can use usedFilter for take SearchSettings.filter;
-
-    // - configure search (UI or Programmatic class use)
-
-  }
+  ngOnInit(): void {}
 
 }

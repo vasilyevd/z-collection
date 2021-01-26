@@ -1,7 +1,7 @@
 import {PaginationConfig} from './interface';
 
 export const PAGINATION_DEFAULT: PaginationConfig = {
-  size: 5,
+  size: 10,
   current: 0,
   settings: {
     enums: [
