@@ -3,10 +3,10 @@ import {IAttributeFilter} from './attribute';
 
 export type IAttributeFilterConfig = {
   type: string,
+  enum?: FilterEnumConfig | ((filter?: IAttributeFilter) => FilterEnumConfig),
   ui?: string,
   label?: string,
   hint?: string,
-  enum?: FilterEnumConfig | ((filter?: IAttributeFilter) => FilterEnumConfig),
   enabled?: boolean,
   disabled?: boolean,
   visible?: boolean

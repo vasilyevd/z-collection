@@ -3,6 +3,18 @@ import {of} from 'rxjs';
 import {FilterService} from '../../../filters/filter-servise';
 import {IFilterConfig, IFilterService} from '../../../filters/interface';
 
+
+const aaa = [
+  {
+    key: 'Allow',
+    value: 'ALLOW'
+  },
+  {
+    key: 'Deny',
+    value: 'DENNY'
+  }
+]
+
 @Injectable()
 export class ShippingRulesFilter extends FilterService implements IFilterService {
 
@@ -72,6 +84,13 @@ export class ShippingRulesFilter extends FilterService implements IFilterService
             value: 'DENNY'
           }
         ],
+      },
+
+      action2: {
+        type: 'EQUAL_ENUM',
+        ui: 'select',
+        label: 'Action2',
+        enum: aaa,
       },
 
       /** Show select based on data from... BackEnd... Some service with data. */
