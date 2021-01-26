@@ -1,12 +1,15 @@
 import {$Util} from '../core/utils/common';
 import {AttributeFilter} from './filter-attribute';
-import {
-  FiltersStorage,
-  IFilterConfig,
-  IFilterService
-} from './interface';
 import {SearchFilterValue} from '../collection/interface';
+import {FiltersStorage, IAttributeFilter, IFilterConfig, IFilterService} from './interface';
 
+
+/**
+ * Это некая промежуточная инстанция для:
+ *  - использования данных для поиска (в частности в коллекциях)
+ *  - для хранения состояния фильтра и использовании его в UI
+ *  - для использования в построении UI компонентов фильтра
+ */
 export abstract class FilterService<T = any> implements IFilterService {
 
   /**
@@ -17,7 +20,7 @@ export abstract class FilterService<T = any> implements IFilterService {
   /**
    * Store all AttributeFilters models
    */
-  private _filters: FiltersStorage = {};
+  protected _filters: FiltersStorage = {};
 
   private _config: IFilterConfig;
 
@@ -64,14 +67,14 @@ export abstract class FilterService<T = any> implements IFilterService {
   /**
    * Provide all Filter AttributesModels
    */
-  public getFilters() {
+  public getFilters(): FiltersStorage {
     return this._filters;
   };
 
   /**
    * Provide AttributeMOdel by name
    */
-  public getFilter(attribute) {
+  public getFilter(attribute): IAttributeFilter {
     return this._filters[attribute];
   };
 
@@ -104,5 +107,9 @@ export abstract class FilterService<T = any> implements IFilterService {
     if ($Util.isFunction(fn)) {
       this._eventCallbacks.push(fn);
     }
+  }
+
+  list(): IAttributeFilter[] {
+    return Object.values(this.getFilters());
   }
 }

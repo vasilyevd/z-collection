@@ -1,20 +1,19 @@
 import {$Util} from '../core/utils/common';
 import {isObservable, Observable} from 'rxjs';
 import {AttributeFilterValue, FilterRangeValue} from '../collection/interface';
-import {IAttributeFilter} from './interface';
+import {IAttributeFilter, IAttributeFilterConfig} from './interface';
 
-export class AttributeFilter implements IAttributeFilter {
+/**
+ * Core implementation
+ */
+abstract class BaseAttributeFilter implements IAttributeFilter {
+
   private _type;
   protected _value: AttributeFilterValue;
-  private _label;
-  private _hint;
   private _enum_list: any[];
 
   constructor(name, config?) {
     console.log('CREATED-ATTRIBUTE-FILTER-WITH-CONFIG', config);
-
-    this._label = config.label || null;
-    this._hint = config.hint || null;
     this._type = config.type || 'ILIKE_STRING';
 
     let configEnum = config.enum;
@@ -70,6 +69,58 @@ export class AttributeFilter implements IAttributeFilter {
   }
 
   public onChange: () => void
+
+  abstract getHint(): string;
+
+  abstract getLabel(): string;
+
+  abstract isDisabled(): boolean;
+
+  abstract isEnabled(): boolean;
+
+  abstract isVisible(): boolean;
+
+}
+
+/**
+ * Implementation with UI part.
+ * Now use only this variant
+ */
+export class AttributeFilter extends BaseAttributeFilter implements IAttributeFilter {
+  private _label: string;
+  private _hint: string;
+  private _disabled: boolean;
+  private _enabled: boolean;
+  private _visible = true;
+
+  constructor(name, config?: IAttributeFilterConfig) {
+    super(name, config);
+
+    this._label = config.label || null;
+    this._hint = config.hint || null;
+    this._enabled = config.enabled ?? true;
+  }
+
+  getHint(): string {
+    return this._hint;
+  }
+
+  getLabel(): string {
+    return this._label;
+  }
+
+  isDisabled(): boolean {
+    return this._disabled;
+  }
+
+  isEnabled(): boolean {
+    return this._enabled;
+  }
+
+  isVisible(): boolean {
+    return this._visible;
+  }
+
 }
 
 export class RangeAttributeFilter<T = number> extends AttributeFilter {

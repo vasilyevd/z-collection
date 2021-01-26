@@ -4,7 +4,24 @@
   <div>{{item.data.id}} - {{item.data.hub_id}} - {{item.data.action}}</div>
 <!--  <div>{{item.data | json}}</div>-->
 </div>
+<h5>Filter</h5>
 <div style="border: 1px solid gray; padding: 8px;">
-  <h5>Filter</h5>
+  <div class="" *ngFor="let f of collection.getFilter().list()" >
+    <div style="display: flex;">
+      <div style="flex-basis: 30%">
+        <div *ngIf="f.isEnabled()">
+          <div><strong>Type:</strong>{{f.getType()}}</div>
+          <div><strong>Label:</strong>{{f.getLabel()}}</div>
+          <input type="search">
+          <div><small>{{f.getHint()}}</small></div>
+        </div>
+    </div>
+      <div style="flex-basis: 30%"><strong>Value:</strong>{{f.getValue() | json}}</div>
+      <div style="flex: auto"><strong>Enum:</strong>{{f.getEnum() | json}}</div>
+    </div>
+  </div>
+</div>
+<div style="border: 1px solid gray; padding: 8px;">
   <div><pre>{{collection.getFilter() | json}}</pre></div>
 </div>
+%

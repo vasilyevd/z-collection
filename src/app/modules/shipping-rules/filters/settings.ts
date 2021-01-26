@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {of} from 'rxjs';
 import {FilterService} from '../../../filters/filter-servise';
+import {IFilterConfig, IFilterService} from '../../../filters/interface';
 
 @Injectable()
-export class ShippingRulesFilter extends FilterService {
+export class ShippingRulesFilter extends FilterService implements IFilterService {
 
   /**
    * Итак енум для фильтра может быть статичен - его можно передать внутри конфига.
@@ -47,13 +48,13 @@ export class ShippingRulesFilter extends FilterService {
    * А не должен ли этим заниматься сервис фильтров - зная при этом где брать данные и как фильтровать между собой)
    *
    */
-  $config() {
+  $config(): IFilterConfig {
     return {
       id: {
         type: 'LIKE_INT',
         ui: 'input:text',
         label: 'Rule ID',
-        hint: false
+        hint: null,
       },
 
       /** Just show select with values */
@@ -82,9 +83,10 @@ export class ShippingRulesFilter extends FilterService {
       },
 
       testFn: {
+        enabled: false,
         type: 'TEST',
         label: 'test',
-        enum: this.someEnumListFunction
+        enum: this.someEnumListFunction,
       },
 
       testFn2: {
@@ -101,6 +103,7 @@ export class ShippingRulesFilter extends FilterService {
    * @??? can extend after create base from parent?
    */
   constructor() {
+    console.log('ShippingRulesFilter constructor');
     super();
   }
 

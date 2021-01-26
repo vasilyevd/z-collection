@@ -34,7 +34,7 @@ export class GridActiveCollection<T = any> extends ApiActiveCollection implement
     return this.filter;
   }
 
-  setFilter(filter: IFilterService) {
+  setFilter<T extends IFilterService = IFilterService>(filter: T) {
     this.filter = filter;
   }
 
@@ -50,7 +50,7 @@ export class GridActiveCollection<T = any> extends ApiActiveCollection implement
   getSearchSettings(): SearchSettings {
     return {
       pagination: this.getPagination(),
-      filter: SearchFilter
+      filter: this.filter
     };
   }
 

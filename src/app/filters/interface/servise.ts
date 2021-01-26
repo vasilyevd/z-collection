@@ -8,11 +8,12 @@ export interface IFilterService {
   addFilter(attribute, config?);
   getFilter(attribute): IAttributeFilter;
   getFilters(): FiltersStorage;
+  list(): IAttributeFilter[]
   hasFilter(name): boolean;
   getConfig();
 }
 
-export type FiltersStorage =  {
+export type FiltersStorage<T extends IAttributeFilter = IAttributeFilter> =  {
   [key: string]: IAttributeFilter
 };
 
