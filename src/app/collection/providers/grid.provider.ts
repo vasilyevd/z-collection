@@ -39,7 +39,7 @@ export class GridCollectionApiDataProvider extends CollectionApiDataProvider {
   }
 
   private initDataByPaginatedStrategy(strategy: CollectionStartStrategy){
-    console.log('GridCollectionApiDataProvider:initDataByPaginatedStrategy');
+    // console.log('GridCollectionApiDataProvider:initDataByPaginatedStrategy');
     const p = this.collection.getPagination();
     if (p) {
       // set items count in pagination by initiated source if not defined

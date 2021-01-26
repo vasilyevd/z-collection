@@ -22,16 +22,16 @@ export class MockApiService extends ApiService {
   }
 
   public GridSearch<T = any>(providedUrl: string | ProvidedUrl, search: SearchSettings = {}, options: ApiRequestOptions = {}) {
-    console.log('MockApiService:GridSearch');
+    // console.log('MockApiService:GridSearch');
     const url = this.toProvidedUrl(providedUrl);
 
-    console.log('toProvidedUrl', url);
+    // console.log('toProvidedUrl', url);
 
     const searchToParams = {
       filter: search.filter,
       pagination: this._paginationPrepare(search.pagination)
     };
-    console.log('searchToParams', searchToParams);
+    // console.log('searchToParams', searchToParams);
     options.params = {...url.params, ...options.params, ...searchToParams.filter, ...searchToParams.pagination};
 
     return this.Get<GridResponse<T>>(`api/${url.url}`, options).pipe(
@@ -47,7 +47,7 @@ export class MockApiService extends ApiService {
   }
 
   private _paginationPrepare(pagination: IPaginationModel) {
-    console.log('_paginationPrepare', pagination);
+    // console.log('_paginationPrepare', pagination);
     if (!pagination) { return {}; }
     /**
      * In the Link header you'll get first, prev, next and last links.
@@ -63,7 +63,7 @@ export class MockApiService extends ApiService {
       _start: pagination.getOffset(),
       _limit: pagination.pageSize()
     };
-    console.log('mockPaginate', mockPaginate);
+    // console.log('mockPaginate', mockPaginate);
     return mockPaginate;
   }
 

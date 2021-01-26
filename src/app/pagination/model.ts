@@ -20,7 +20,7 @@ export class PaginationModel implements IPaginationModel {
   public limit: number;
 
   constructor(state?: Partial<PaginationState>) {
-    console.log('PaginationModel');
+    // console.log('PaginationModel');
     Object.assign(this, PAGINATION_DEFAULT, state);
   }
 

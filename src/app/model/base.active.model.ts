@@ -72,7 +72,7 @@ export abstract class AbstractActiveModel<T= any> implements IActiveModel<T>{
   }
 
   private setup({data, schema, labels= {}}: IActiveModelConfig<T>) {
-    console.log('AbstractActiveModel:setup', 'data', data);
+    // console.log('AbstractActiveModel:setup', 'data', data);
     Object.assign(this, {
       predefined: { ...data },
       schema,
@@ -92,7 +92,7 @@ export abstract class AbstractActiveModel<T= any> implements IActiveModel<T>{
       .forEach(name => {
         this.setAttributeBySchema(name);
       });
-    console.log('ActiveModel:initAttributes END');
+    // console.log('ActiveModel:initAttributes END');
   }
 
   private setAttributeBySchema(attribute: string): void {

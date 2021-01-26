@@ -33,7 +33,7 @@ export class CollectionApiDataProvider implements ICollectionApiDataProvider {
   }
 
   private initDataByStrategy(strategy: CollectionStartStrategy){
-    console.log('CollectionApiDataProvider:initDataByStrategy');
+    // console.log('CollectionApiDataProvider:initDataByStrategy');
     // fill only if have strategy
     if (strategy === CollectionStartStrategy.SHOW_ALL) {
       this.source.forEach ((itemData: Data) => {

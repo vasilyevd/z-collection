@@ -47,8 +47,8 @@ export class CollectionArrayDataProvider implements ICollectionArrayDataProvider
       },
     );
 
-    console.log('source', this.source);
-    console.log('allItems', this.allItems);
+    // console.log('source', this.source);
+    // console.log('allItems', this.allItems);
   }
 
   /**

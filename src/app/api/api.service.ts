@@ -31,7 +31,7 @@ export class ApiService implements IAppApiService {
    * - catch errors for make this response ass error
    */
   public Get<T>(url: string, options?: ApiRequestOptions): Observable<AppApiResponse<T>>{
-    console.log('ApiService:Get', url, options);
+    // console.log('ApiService:Get', url, options);
     const opt: { observe: 'response' } = {...options, ...{observe: 'response'}};
     return this.http.get<T>(url, opt)
       .pipe(

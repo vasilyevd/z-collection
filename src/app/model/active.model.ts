@@ -8,7 +8,7 @@ import {Data, RequireProps} from '../core/types';
  */
 export abstract class ActiveModel<T> extends AbstractActiveModel<T> implements IActiveModel<T>{
   constructor(data?: Data<T>) {
-    console.log('ActiveModel:constructor', data);
+    // console.log('ActiveModel:constructor', data);
     super({data});
   }
 }

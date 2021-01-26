@@ -222,7 +222,7 @@ export class ShippingRulesFilter extends FilterService {
   }
 
   someEnumListFunction(filter) {
-    console.log('someEnumListFunction RUNNED');
+    // console.log('someEnumListFunction RUNNED');
     return [
       { key: 'some1', value: 55 },
       { key: 'some2', value: 56 },
