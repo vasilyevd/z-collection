@@ -8,6 +8,9 @@ import {IAttributeFilter, IAttributeFilterConfig} from './interface';
  */
 abstract class BaseAttributeFilter implements IAttributeFilter {
 
+  get value() {
+    return this.getValue();
+  }
   private _type;
   protected _value: AttributeFilterValue;
   private _enum_list: any[];

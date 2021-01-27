@@ -3,6 +3,7 @@ import {AttributeFilterValue} from '../../collection/interface';
 export interface IAttributeFilter {
   name: string;
   onChange: () => void;
+  value;
   getValue(): AttributeFilterValue;
   setValue(value: AttributeFilterValue): void;
   setEnum(list);
