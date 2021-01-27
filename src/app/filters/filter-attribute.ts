@@ -12,7 +12,10 @@ abstract class BaseAttributeFilter implements IAttributeFilter {
   protected _value: AttributeFilterValue;
   private _enum_list: any[];
 
+  public name: string;
+
   constructor(name, config?) {
+    this.name = name;
     console.log('CREATED-ATTRIBUTE-FILTER-WITH-CONFIG', config);
     this._type = config.type || 'ILIKE_STRING';
 

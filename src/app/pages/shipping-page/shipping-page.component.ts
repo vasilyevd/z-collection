@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ShippingRulesCollection} from '../../modules/shipping-rules/collection/collection';
-import {ShippingRulesFilter} from '../../modules/shipping-rules/filters/settings';
+import {ShippingRulesFilter} from '../../modules/shipping-rules/filters/model';
 
 @Component({
   selector: 'app-shipping-page',
@@ -12,13 +12,13 @@ export class ShippingPageComponent implements OnInit {
   public collection: ShippingRulesCollection;
 
   constructor(
-    private filterSettings: ShippingRulesFilter,
+    public filter: ShippingRulesFilter,
   ) {}
 
   ngOnInit(): void {
     this.collection = new ShippingRulesCollection();
     // tell collection about use this filter object
-    this.collection.setFilter(this.filterSettings);
+    this.collection.setFilter(this.filter);
     this.collection.load();
 
     // so, now collection can use usedFilter for take SearchSettings.filter;
@@ -28,4 +28,9 @@ export class ShippingPageComponent implements OnInit {
     console.log('COLLECTION:', this.collection);
   }
 
+
+  testProgramChanges() {
+    console.log('testProgramChanges');
+    this.filter.setValue('id', 555555);
+  }
 }

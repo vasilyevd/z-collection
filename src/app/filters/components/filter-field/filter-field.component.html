@@ -1,0 +1,6 @@
+<p>filter-field-X works!</p>
+<p>type:{{filter.getType()}}</p>
+    <div [ngSwitch]="filter.getType()">
+        <filter-form-control-text *ngSwitchCase="'LIKE_INT'" [filter]="filter"></filter-form-control-text>
+        <filter-form-control-select *ngSwitchCase="'EQUAL_ENUM'" [filter]="filter"></filter-form-control-select>
+    </div>

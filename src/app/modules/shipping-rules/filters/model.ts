@@ -103,15 +103,20 @@ export class ShippingRulesFilter extends FilterService implements IFilterService
 
       testFn: {
         enabled: false,
-        type: 'TEST',
+        type: 'EQUAL_ENUM',
         label: 'test',
         enum: this.someEnumListFunction,
       },
 
       testFn2: {
-        type: 'TEST',
+        type: 'EQUAL_ENUM',
         label: 'test2',
-        enum: of<{k:string, v: number}[]>([{k:'off1',v: 1}, {k:'off2', v:3}] )
+        enum: of<{key:string, value: number}[]>([{key:'off1',value: 1}, {key:'off2', value:3}] )
+      },
+
+      date: {
+        type: 'RANGE_DATE',
+        label: 'Created At',
       }
     }
   }
@@ -141,7 +146,7 @@ export class ShippingRulesFilter extends FilterService implements IFilterService
    * Custom function for return enum as Observable resource
    */
   gotObservable() {
-    return of<{k:string, v: number}[]>([{k:'fob',v: 10}, {k:'fob2', v:30}] )
+    return of<{key:string, value: number}[]>([{key:'fob',value: 10}, {key:'fob2', value:30}] )
   }
 
 }

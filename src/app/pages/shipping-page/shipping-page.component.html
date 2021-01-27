@@ -4,7 +4,14 @@
   <div>{{item.data.id}} - {{item.data.hub_id}} - {{item.data.action}}</div>
 <!--  <div>{{item.data | json}}</div>-->
 </div>
+
+
 <h5>Filter</h5>
+
+<shipping-rule-filter [filter]="filter"></shipping-rule-filter>
+
+<div><button (click)="testProgramChanges()">TEST</button> </div>
+
 <div style="border: 1px solid gray; padding: 8px;">
   <div class="" *ngFor="let f of collection.getFilter().list()" >
     <div style="display: flex;">
@@ -21,6 +28,7 @@
     </div>
   </div>
 </div>
+
 <div style="border: 1px solid gray; padding: 8px;">
   <div><pre>{{collection.getFilter() | json}}</pre></div>
 </div>

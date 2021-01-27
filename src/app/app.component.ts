@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ShippingRulesCollection} from './modules/shipping-rules/collection/collection';
-import {ShippingRulesFilter} from './modules/shipping-rules/filters/settings';
+import {ShippingRulesFilter} from './modules/shipping-rules/filters/model';
 
 @Component({
   selector: 'app-root',

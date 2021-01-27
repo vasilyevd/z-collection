@@ -1,6 +1,7 @@
 import {AttributeFilterValue} from '../../collection/interface';
 
 export interface IAttributeFilter {
+  name: string;
   onChange: () => void;
   getValue(): AttributeFilterValue;
   setValue(value: AttributeFilterValue): void;

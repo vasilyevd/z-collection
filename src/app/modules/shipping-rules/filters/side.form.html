@@ -1,0 +1,14 @@
+<form [formGroup]="form" (submit)="onSubmit($event)">
+  <app-filter-field [filter]="filter.getFilter('id')"></app-filter-field>
+  <app-filter-field [filter]="filter.getFilter('action')"></app-filter-field>
+  <app-filter-field [filter]="filter.getFilter('action2')"></app-filter-field>
+  <app-filter-field [filter]="filter.getFilter('hub')"></app-filter-field>
+  <app-filter-field [filter]="filter.getFilter('testFn')"></app-filter-field>
+  <app-filter-field [filter]="filter.getFilter('testFn2')"></app-filter-field>
+</form>
+
+<div>{{filter.getSearch() | json}}</div>
+
+<div>Form: {{form.value | json}}</div>
+
+<div>Form: {{form.getRawValue() | json}}</div>
