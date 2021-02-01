@@ -13,7 +13,7 @@ const aaa = [
     key: 'Deny',
     value: 'DENNY'
   }
-]
+];
 
 @Injectable()
 export class ShippingRulesFilter extends FilterService implements IFilterService {

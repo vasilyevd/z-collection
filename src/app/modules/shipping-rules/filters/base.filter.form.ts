@@ -1,6 +1,9 @@
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Directive} from '@angular/core';
 
+/**
+ * Base class for define self filter components
+ */
 @Directive()
 export abstract class BaseFilterForm {
 

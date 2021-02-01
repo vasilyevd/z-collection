@@ -10,21 +10,21 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FilterFieldComponent } from './filters/components/filter-field/filter-field.component';
 import { FilterControlTextComponent } from './filters/components/filter-control-text/filter-control-text.component';
 import { FilterControlSelectComponent } from './filters/components/filter-control-select/filter-control-select.component';
+import {ShippingRulesModule} from './modules/shipping-rules/shipping-rules.module';
+import {FiltersModule} from './filters/filters.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShippingPageComponent,
-    ShippingRulesFilterForm,
-    FilterFieldComponent,
-    FilterControlTextComponent,
-    FilterControlSelectComponent,
   ],
   imports: [
     BrowserModule,
     ApiModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FiltersModule,
+    ShippingRulesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
