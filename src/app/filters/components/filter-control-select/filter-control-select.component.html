@@ -1,6 +1,5 @@
-<p>filter-control-select works!</p>
 <label>
-  {{filter.getLabel()}}
+  (FC-S) {{filter.getLabel()}}
   <select (change)="changeSelected($event)" [formControl]="formControl">
     <option value="" disabled>Choose your city</option>
     <option *ngFor="let o of getOptions()" [ngValue]="o.value">{{o.key}}</option>

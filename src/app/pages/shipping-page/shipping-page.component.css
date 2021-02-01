@@ -1,0 +1,26 @@
+.page-layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.page-header {
+  flex: 1 0 100%;
+  background: gray;
+
+  display: flex;
+
+}
+.page-header .header-section {
+  flex: 1 1 auto;
+}
+
+.side-filter {
+  flex: 0 0 300px;
+
+  background: cadetblue;
+}
+
+.page-content {
+  flex: 1 0 auto;
+}

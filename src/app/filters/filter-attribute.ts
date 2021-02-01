@@ -1,12 +1,16 @@
 import {$Util} from '../core/utils/common';
-import {isObservable, Observable} from 'rxjs';
+import {BehaviorSubject, isObservable, Observable} from 'rxjs';
 import {AttributeFilterValue, FilterRangeValue} from '../collection/interface';
 import {IAttributeFilter, IAttributeFilterConfig} from './interface';
+import { EventEmitter } from '@angular/core';
+
 
 /**
  * Core implementation
  */
 abstract class BaseAttributeFilter implements IAttributeFilter {
+
+  public changes: BehaviorSubject<any> = new BehaviorSubject(null);
 
   get value() {
     return this.getValue();
@@ -56,7 +60,12 @@ abstract class BaseAttributeFilter implements IAttributeFilter {
   }
 
   setValue(value: AttributeFilterValue) {
+    const changed = this._value !== value;
     this._value = value;
+    if(changed) {
+      console.log('next', value);
+      this.changes.next(value);
+    }
   }
 
   setEnum(list) {
@@ -92,7 +101,7 @@ abstract class BaseAttributeFilter implements IAttributeFilter {
  * Implementation with UI part.
  * Now use only this variant
  */
-export class AttributeFilter extends BaseAttributeFilter implements IAttributeFilter {
+export class AttributeFilter extends BaseAttributeFilter {
   private _label: string;
   private _hint: string;
   private _disabled: boolean;

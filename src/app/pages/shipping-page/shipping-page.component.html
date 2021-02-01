@@ -1,19 +1,25 @@
-<p>shipping-page works!</p>
+<div class="page-layout">
+  <div class="page-header">
+    <div class="header-section">
+      <shipping-rule-filter-view [filter]="filter"></shipping-rule-filter-view>
+    </div>
+    <div class="header-section">
+      <button (click)="testProgramChanges()">TEST</button>
+    </div>
+  </div>
 
-<div class="" *ngFor="let item of collection.items" >
-  <div>{{item.data.id}} - {{item.data.hub_id}} - {{item.data.action}}</div>
-<!--  <div>{{item.data | json}}</div>-->
+
+  <div class="side-filter">
+    <shipping-rule-filter [filter]="filter"></shipping-rule-filter>
+  </div>
+  <div class="page-content">
+    GRID
+  </div>
 </div>
 
 
-<h5>Filter</h5>
-
-<shipping-rule-filter [filter]="filter"></shipping-rule-filter>
-
 <hr>
 <hr>
-
-<div><button (click)="testProgramChanges()">TEST</button> </div>
 
 <div style="border: 1px solid gray; padding: 8px;">
   <div class="" *ngFor="let f of collection.getFilter().list()" >
@@ -31,8 +37,3 @@
     </div>
   </div>
 </div>
-
-<div style="border: 1px solid gray; padding: 8px;">
-  <div><pre>{{collection.getFilter() | json}}</pre></div>
-</div>
-%

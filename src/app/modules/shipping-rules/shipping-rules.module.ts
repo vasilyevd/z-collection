@@ -22,7 +22,8 @@ import {FiltersModule} from '../../filters/filters.module';
     ShippingRulesFilter,
   ],
   exports: [
-    ShippingRulesFilterForm
+    ShippingRulesFilterForm,
+    ShippingRulesFilterView
   ]
 })
 export class ShippingRulesModule { }

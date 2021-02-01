@@ -1,9 +1,11 @@
 import {AttributeFilterValue} from '../../collection/interface';
+import {Observable} from 'rxjs';
 
 export interface IAttributeFilter {
   name: string;
   onChange: () => void;
   value;
+  changes: Observable<any>;
   getValue(): AttributeFilterValue;
   setValue(value: AttributeFilterValue): void;
   setEnum(list);

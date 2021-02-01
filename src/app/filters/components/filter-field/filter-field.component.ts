@@ -11,6 +11,7 @@ export class FilterFieldComponent implements OnInit {
   @Input() filter: IAttributeFilter
 
   ngOnInit(): void {
+    console.log('APP-FILTER-FIELD');
   }
 
 }
