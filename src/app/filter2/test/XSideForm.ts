@@ -1,6 +1,8 @@
 import {XFilterForm} from './XFilterForm';
 import {Injectable} from '@angular/core';
 import {XFilter} from './XFilter';
+import {IFilterFormConfig} from '../interface';
+import {of} from 'rxjs';
 
 /**
  * - ui configuration for side form
@@ -9,11 +11,37 @@ import {XFilter} from './XFilter';
  */
 @Injectable()
 export class XSideFilterForm extends XFilterForm {
-  constructor(
-    public filter: XFilter
-  ) {
-    super(filter);
-    console.log(`Created Side Filter`);
+
+  $config(): IFilterFormConfig {
+    return {
+      id: {
+        ui: 'input:text',
+        label: 'Rule ID',
+        hint: null,
+      },
+      action: {
+        ui: 'select',
+        label: 'Action',
+        enum: [
+          {
+            key: 'Allow',
+            value: 'ALLOW'
+          },
+          {
+            key: 'Deny',
+            value: 'DENNY'
+          }
+        ],
+      },
+      testFn2: {
+        label: 'test2',
+        enum: of<{key: string, value: number}[]>([{key: 'off1', value: 1}, {key: 'off2', value: 3}] )
+      },
+    };
+  }
+
+  init() {
+    super.init();
   }
 
 }

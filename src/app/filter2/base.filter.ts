@@ -1,7 +1,17 @@
 /* tslint:disable:member-ordering */
-import {AttributeFilterType, AttributeFilterValue, Filters, IAttributeFilter, IAttributeFilterConfig, IFilterConfig} from './interface';
+import {
+  AttributeFilterType,
+  AttributeFilterValue,
+  FilterRangeValue,
+  Filters,
+  IAttributeFilter,
+  IAttributeFilterConfig,
+  IFilterConfig
+} from './interface';
 
 export abstract class BaseFilter {
+
+  public _uid: number;
 
   private _config: IFilterConfig;
 
@@ -9,6 +19,7 @@ export abstract class BaseFilter {
 
   constructor(config?) {
     console.log('BaseFilter:constructor');
+    this._uid = Math.floor(Math.random()*10000);
     this._config = config ?? this.$config();
     this.initByConfig();
   }
@@ -24,9 +35,30 @@ export abstract class BaseFilter {
 
   protected _filters: Filters = {};
 
-  public addFilter(attribute, config): void {
-    this._filters[attribute] = new AttributeFilter(attribute, config);
+  public addFilter(attribute, config: IAttributeFilterConfig): void {
+    switch (config.type) {
+      case 'RANGE_DATE':
+        this._filters[attribute] = new RangeAttributeFilter(attribute, config);
+        break;
+      default:
+        this._filters[attribute] = new AttributeFilter(attribute, config);
+    }
+
   }
+
+  /**
+   * Provide AttributeMOdel by name
+   */
+  public getFilter(attribute): IAttributeFilter {
+    return this._filters[attribute];
+  };
+
+  /**
+   * Provide all Filter AttributesModels
+   */
+  public getFilters(): Filters {
+    return this._filters;
+  };
 }
 
 abstract class BaseAttributeFilter implements IAttributeFilter {
@@ -65,5 +97,22 @@ export class AttributeFilter extends BaseAttributeFilter {
 
   isEnabled(): boolean {
     return this._enabled;
+  }
+}
+
+export class RangeAttributeFilter<T = number> extends AttributeFilter {
+  protected _value: FilterRangeValue<T> = {
+    from: null,
+    to: null
+  };
+
+  get value() {
+    if (this._value && (this._value['from'] || this._value['to'])) {
+      return this._value;
+    }
+    return null;
+  }
+  setValue(value: FilterRangeValue<T>) {
+    this._value = value;
   }
 }

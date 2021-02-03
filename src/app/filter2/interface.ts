@@ -45,6 +45,14 @@ export interface IAttributeFilter {
   name: string;
   value: AttributeFilterValue;
   readonly type: AttributeFilterType;
+
+  isEnabled(): boolean;
+}
+
+export interface IAttributeFormFilter {
+  name: string;
+  value: AttributeFilterValue;
+  readonly type: AttributeFilterType;
 }
 
 export type AttributeFilterType = string;

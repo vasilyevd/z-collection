@@ -1,8 +1,9 @@
 import {BaseFilterForm} from '../base.form';
-import {Injectable} from '@angular/core';
+import {Injectable, Injector, OnInit} from '@angular/core';
 import {XFilter} from './XFilter';
 import {FilterEnumConfig, IFilterFormConfig} from '../interface';
 import {Observable, of} from 'rxjs';
+import {FormGroup} from '@angular/forms';
 
 const aaa = [
   {
@@ -24,6 +25,7 @@ const aaa = [
  */
 @Injectable()
 export class XFilterForm extends BaseFilterForm {
+
   $config(): IFilterFormConfig {
     return {
       id: {
@@ -69,10 +71,9 @@ export class XFilterForm extends BaseFilterForm {
     };
   }
 
-  constructor( public filter: XFilter ) {
-    super();
+  init() {
+    console.log('XFilterForm', this);
   }
-
 
   /**
    * Custom function for return static enum list
