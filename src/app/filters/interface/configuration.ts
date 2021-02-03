@@ -10,10 +10,10 @@ export type IAttributeFilterConfig = {
   enabled?: boolean,
   disabled?: boolean,
   visible?: boolean
-}
+};
 
 export type IFilterConfig = {
   [key: string]: IAttributeFilterConfig
-}
+};
 
 export type FilterEnumConfig<T = any> = T[] | Observable<T[]>

@@ -12,11 +12,14 @@ import { FilterControlTextComponent } from './filters/components/filter-control-
 import { FilterControlSelectComponent } from './filters/components/filter-control-select/filter-control-select.component';
 import {ShippingRulesModule} from './modules/shipping-rules/shipping-rules.module';
 import {FiltersModule} from './filters/filters.module';
+import {Filter2Module} from './filter2/filter2.module';
+import { Filters2Component } from './pages/filters2/filters2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShippingPageComponent,
+    Filters2Component,
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import {FiltersModule} from './filters/filters.module';
     FormsModule,
     ReactiveFormsModule,
     FiltersModule,
+    Filter2Module,
     ShippingRulesModule
   ],
   providers: [],
