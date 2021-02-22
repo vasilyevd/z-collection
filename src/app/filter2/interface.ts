@@ -11,7 +11,8 @@ export type IFilterConfig = {
  * Define behaviour (UI) configuration for attributes in filter
  */
 export type IFilterFormConfig = {
-  [key: string]: IAttributeFilterFormConfig
+  // [key: string]: IAttributeFilterFormConfig
+  [key: string]: IFilterControlConfig
 };
 
 
@@ -33,7 +34,20 @@ export type IAttributeFilterFormConfig = {
   label?: string,
   hint?: string,
   disabled?: boolean,
-  visible?: boolean
+  visible?: boolean,
+  pinned?: boolean
+};
+
+export type IFilterControlConfig = {
+  enum?: FilterEnumConfig | ((filter?: IAttributeFilter) => FilterEnumConfig),
+  ui?: string,
+  label?: string,
+  emptyLabel?: string,
+  hint?: string,
+  disabled?: boolean,
+  isDisabled?: () => boolean,
+  visible?: boolean,
+  submit?: boolean,
 };
 
 

@@ -1,0 +1,8 @@
+<label>
+  {{filterControl.label()}} <span *ngIf="filterControl.isDisabled()">disabled</span>
+<!--  <select [formControlName]="filterControl.name()">-->
+  <select [formControl]="filterControl.control">
+    <option [ngValue]="null" selected>{{filterControl.getConfig('emptyLabel')}}</option>
+    <option *ngFor="let o of filterControl.getEnum()" [ngValue]="o.value">{{o.key}}</option>
+  </select>
+</label>

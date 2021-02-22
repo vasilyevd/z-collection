@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {XFilterForm} from './XFilterForm';
-import {XFilter} from './XFilter';
 import {IFilterFormConfig} from '../interface';
 import {Observable, of} from 'rxjs';
 
@@ -12,12 +11,20 @@ import {Observable, of} from 'rxjs';
 @Injectable()
 export class XViewFilterForm extends XFilterForm {
 
+  protected options = {
+    liveChanges: false,
+    hideEmpty: true
+  };
+
   $config(): IFilterFormConfig {
-    return Object.assign(super.$config(), {
+    const config = {
       id: {
         ui: 'input:text',
         label: 'Rule ID',
         hint: null,
+      },
+      action: {
+        // submit: true,
       },
       action3: {
         ui: 'select',
@@ -37,7 +44,9 @@ export class XViewFilterForm extends XFilterForm {
         label: 'test2',
         enum: this.gotMyObservable
       },
-    });
+      date: {},
+    };
+    return this.mergeConfigs(super.$config(), config);
   }
 
   /**

@@ -37,7 +37,7 @@
       {
         "order": [
           "static-field",
-          "instance-field",
+          "public-instance-field",
           "static-method",
           "instance-method"
         ]

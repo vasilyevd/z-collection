@@ -23,7 +23,7 @@ abstract class BaseAttributeFilter implements IAttributeFilter {
 
   constructor(name, config?) {
     this.name = name;
-    console.log('CREATED-ATTRIBUTE-FILTER-WITH-CONFIG', config);
+    // console.log('CREATED-ATTRIBUTE-FILTER-WITH-CONFIG', config);
     this._type = config.type || 'ILIKE_STRING';
 
     let configEnum = config.enum;

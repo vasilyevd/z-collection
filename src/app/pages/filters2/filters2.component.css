@@ -24,3 +24,12 @@
 .page-content {
   flex: 1 0 auto;
 }
+
+.header-section .filter-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.header-section .filter-form .filter-field {
+  flex: 0 0 auto;
+}

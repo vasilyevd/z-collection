@@ -1,0 +1,5 @@
+<label>{{filterControl.label()}} <span *ngIf="filterControl.isDisabled()">disabled</span>
+<!--  <input type="text" [formControlName]="filterControl.name()">-->
+  <input type="text" [formControl]="filterControl.control">
+</label>
+

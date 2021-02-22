@@ -1,6 +1,5 @@
 import {XFilterForm} from './XFilterForm';
 import {Injectable} from '@angular/core';
-import {XFilter} from './XFilter';
 import {IFilterFormConfig} from '../interface';
 import {of} from 'rxjs';
 
@@ -12,8 +11,9 @@ import {of} from 'rxjs';
 @Injectable()
 export class XSideFilterForm extends XFilterForm {
 
+
   $config(): IFilterFormConfig {
-    return {
+    return this.mergeConfigs(super.$config(), {
       id: {
         ui: 'input:text',
         label: 'Rule ID',
@@ -37,11 +37,7 @@ export class XSideFilterForm extends XFilterForm {
         label: 'test2',
         enum: of<{key: string, value: number}[]>([{key: 'off1', value: 1}, {key: 'off2', value: 3}] )
       },
-    };
-  }
-
-  init() {
-    super.init();
+    });
   }
 
 }

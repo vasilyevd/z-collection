@@ -1,9 +1,9 @@
-import {BaseFilterForm} from '../base.form';
+import {BaseFilterForm} from '../form/base.form';
 import {Injectable, Injector, OnInit} from '@angular/core';
-import {XFilter} from './XFilter';
-import {FilterEnumConfig, IFilterFormConfig} from '../interface';
+import {IFilterFormConfig} from '../interface';
 import {Observable, of} from 'rxjs';
-import {FormGroup} from '@angular/forms';
+import {FilterControl} from '../form/control';
+import {HttpClient} from '@angular/common/http';
 
 const aaa = [
   {
@@ -26,15 +26,26 @@ const aaa = [
 @Injectable()
 export class XFilterForm extends BaseFilterForm {
 
+  constructor(
+    injector: Injector,
+  ) {
+    super(injector);
+  }
+
   $config(): IFilterFormConfig {
+    const form = this;
     return {
       id: {
-        ui: 'input:text',
         label: 'Rule ID',
         hint: null,
+        ui: 'input:text',
+        isDisabled(this: FilterControl): boolean {
+          console.log('ID:isDisabled', form.getValue('action'));
+          console.log(this, this.value(), this.value() === '4');
+          return this.value() === '4';
+        }
       },
       action: {
-        ui: 'select',
         label: 'Action',
         enum: [
           {
@@ -46,11 +57,19 @@ export class XFilterForm extends BaseFilterForm {
             value: 'DENNY'
           }
         ],
+        ui: 'select',
+        emptyLabel: 'Any(fromConfig)',
+        isDisabled(this: BaseFilterForm): boolean {
+          console.log('action2:isDisabled');
+          // console.log(this);
+          // console.log(form.filterControl('id').value());
+          return form.getValue('id') === '5';
+        }
       },
       action2: {
-        ui: 'select',
         label: 'Action2',
         enum: aaa,
+        ui: 'select',
       },
       hub: {
         ui: 'select',
@@ -71,8 +90,16 @@ export class XFilterForm extends BaseFilterForm {
     };
   }
 
-  init() {
-    console.log('XFilterForm', this);
+  onChange(changeValue) {
+    /**
+     * 1 - можем просто все значения фильтров выставить в новые.
+     *  т.к. мы не знаем что там менялось в других формах - то по сути это и прийдется сделать.
+     *
+     * 2 - Всё ещё не описана логика как обновлять поля которые имеют "взаимоотношения" с другими или внешний источник данных.
+     *   а) если такое взаимотношение где-то описано, то его необходимо "повторить"
+     *   например: С2 должен показывать значения отфильтрованные согласно значению С1
+     *   например:
+     */
   }
 
   /**
@@ -91,4 +118,5 @@ export class XFilterForm extends BaseFilterForm {
   private gotObservable(): Observable<{ key: string; value: number }[]> {
     return of<{key: string, value: number}[]>([{key: 'fob', value: 10}, {key: 'fob2', value: 30}] );
   }
+
 }

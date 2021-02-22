@@ -8,18 +8,21 @@ import {
   IAttributeFilterConfig,
   IFilterConfig
 } from './interface';
+import {Observable, Subject} from 'rxjs';
+import {BaseFilterForm} from './form/base.form';
+import {$Util} from '../core/utils/common';
 
 export abstract class BaseFilter {
 
   public _uid: number;
 
-  private _config: IFilterConfig;
+  private readonly _config: IFilterConfig;
 
   protected abstract $config(): IFilterConfig;
 
   constructor(config?) {
     console.log('BaseFilter:constructor');
-    this._uid = Math.floor(Math.random()*10000);
+    this._uid = Math.floor(Math.random() * 10000);
     this._config = config ?? this.$config();
     this.initByConfig();
   }
@@ -51,14 +54,45 @@ export abstract class BaseFilter {
    */
   public getFilter(attribute): IAttributeFilter {
     return this._filters[attribute];
-  };
+  }
 
   /**
    * Provide all Filter AttributesModels
    */
   public getFilters(): Filters {
     return this._filters;
-  };
+  }
+
+  /**
+   * Checks is filter exist
+   */
+  hasFilter(name): boolean {
+    return Boolean(this.getFilter(name));
+  }
+
+
+  /**
+   * Set new value for filter
+   * - from any FilterForms or any external
+   */
+  public update(partValue: any, emmiter?: BaseFilterForm): void {
+    console.warn('Filter:update', partValue, emmiter);
+    // update self value
+    // console.log('how we set value for filter?');
+    // console.log('Iterate all filters?', 'Iterate all values?');
+    Object.keys(this.getFilters()).forEach((filterName) => {
+      const filter = this.getFilter(filterName);
+      if (filter && !$Util.isUndefined(partValue[filterName])) {
+        // console.log('try update', filterName, partValue[filterName]);
+        filter.value = partValue[filterName];
+      }
+    });
+    // and inform any related FilterForms about this nae value
+    this.changeSubject.next([partValue, emmiter]);
+  }
+
+  private changeSubject: Subject<[any, BaseFilterForm?]> = new Subject();
+  public change: Observable<[any, BaseFilterForm?]> = this.changeSubject.asObservable();
 }
 
 abstract class BaseAttributeFilter implements IAttributeFilter {
@@ -92,7 +126,7 @@ export class AttributeFilter extends BaseAttributeFilter {
   constructor(name, config?: IAttributeFilterConfig) {
     super(name, config);
     this._enabled = config.enabled ?? true;
-    console.log(`BaseAttributeFilter model created (${name})`);
+    // console.log(`BaseAttributeFilter model created (${name})`);
   }
 
   isEnabled(): boolean {
@@ -112,7 +146,7 @@ export class RangeAttributeFilter<T = number> extends AttributeFilter {
     }
     return null;
   }
-  setValue(value: FilterRangeValue<T>) {
+  set value(value: FilterRangeValue<T>) {
     this._value = value;
   }
 }

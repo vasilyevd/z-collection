@@ -1,0 +1,13 @@
+<div [formGroup]="filterControl.control">
+  <div>{{filterControl.label()}}</div>
+  <div>
+    <label> From
+      <input type="text" [formControlName]="'from'">
+    </label>
+  </div>
+  <div>
+    <label>to
+      <input type="text" [formControlName]="'to'">
+    </label>
+  </div>
+</div>
