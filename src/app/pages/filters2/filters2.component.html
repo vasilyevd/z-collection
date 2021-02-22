@@ -4,17 +4,10 @@
 
         <div [formGroup]="viewForm.getForm()"  class="filter-form">
 
-<!--          <div class="filter-field">-->
-<!--            <label>{{viewForm.filterControl('id').label()}}-->
-<!--              <input type="text" [formControlName]="'id'">-->
-<!--            </label>-->
-<!--          </div>-->
-
           <div class="filter-field" *ngIf="viewForm.visibleControls.get('id')">
             <app-filter-field-text [filterControl]="viewForm.filterControl('id')" ></app-filter-field-text>
           </div>
 
-<!--          *ngIf="viewForm.filterControl('action').isShow()"-->
           <div class="filter-field" *ngIf="viewForm.visibleControls.get('action')">
             <app-filter-select [filterControl]="viewForm.filterControl('action')"></app-filter-select>
           </div>
@@ -26,6 +19,7 @@
           <div class="filter-field">
             <button (click)="viewFormApply()">Apply</button>
           </div>
+
           <div class="filter-field">
             <button (click)="viewForm.reset()">Reset</button>
           </div>
@@ -47,36 +41,25 @@
             <input type="text" [formControlName]="'id'">
           </label>
         </div>
-
         <hr>
+
         <div *ngIf="sideForm.visibleControls.get('id')">
-        <label>
-          {{sideForm.filterControl('action').label()}}
-          <select [formControlName]="'action'">
-            <option [ngValue]="null" selected>{{sideForm.filterControl('action').getConfig('emptyLabel')}}</option>
-            <option *ngFor="let o of sideForm.filterControl('action').getEnum()" [ngValue]="o.value">{{o.key}}</option>
-          </select>
-        </label>
+          <label>
+            {{sideForm.filterControl('action').label()}}
+            <select [formControlName]="'action'">
+              <option [ngValue]="null" selected>{{sideForm.filterControl('action').getConfig('emptyLabel')}}</option>
+              <option *ngFor="let o of sideForm.filterControl('action').getEnum()" [ngValue]="o.value">{{o.key}}</option>
+            </select>
+          </label>
         </div>
-
-
         <hr>
-<!--        <div class="filter-field" [formGroupName]="'date'" *ngIf="sideForm.visibleControls.get('date')">-->
-<!--          <div>{{sideForm.filterControl('date').label()}}</div>-->
-<!--          <div>-->
-<!--          <label> From-->
-<!--            <input type="text" [formControlName]="'from'">-->
-<!--          </label>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--          <label>to-->
-<!--            <input type="text" [formControlName]="'to'">-->
-<!--          </label>-->
-<!--          </div>-->
-<!--        </div>-->
 
         <div class="filter-field" *ngIf="sideForm.visibleControls.get('date')">
           <app-filter-date-range [filterControl]="sideForm.filterControl('date')"></app-filter-date-range>
+        </div>
+
+        <div class="filter-field">
+          <button (click)="sideForm.submit()">Apply</button>
         </div>
 
         <div class="filter-field">

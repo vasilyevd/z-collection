@@ -12,7 +12,7 @@ import {Observable, of} from 'rxjs';
 export class XViewFilterForm extends XFilterForm {
 
   protected options = {
-    liveChanges: false,
+    liveChanges: true,
     hideEmpty: true
   };
 

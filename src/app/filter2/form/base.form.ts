@@ -19,7 +19,7 @@ export abstract class BaseFilterForm implements Iterable<FilterControl>, OnDestr
 
   // CONFIG
   protected options = {
-    liveChanges: true,
+    liveChanges: false,
     hideEmpty: false,
   };
 

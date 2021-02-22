@@ -60,9 +60,6 @@ export class XFilterForm extends BaseFilterForm {
         ui: 'select',
         emptyLabel: 'Any(fromConfig)',
         isDisabled(this: BaseFilterForm): boolean {
-          console.log('action2:isDisabled');
-          // console.log(this);
-          // console.log(form.filterControl('id').value());
           return form.getValue('id') === '5';
         }
       },

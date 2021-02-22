@@ -11,6 +11,11 @@ import {of} from 'rxjs';
 @Injectable()
 export class XSideFilterForm extends XFilterForm {
 
+  protected options = {
+    liveChanges: false,
+    hideEmpty: false
+  };
+
 
   $config(): IFilterFormConfig {
     return this.mergeConfigs(super.$config(), {
