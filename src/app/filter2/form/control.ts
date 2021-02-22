@@ -1,17 +1,17 @@
 import {AbstractControl} from '@angular/forms';
 import {isObservable, Observable, Subject} from 'rxjs';
-import {$Util} from '../../core/utils/common';
 import {distinctUntilChanged} from 'rxjs/operators';
-import {Utils} from 'tslint';
+import {$Util} from '../../core/utils/common';
 
 export class FilterControl {
-  public control: AbstractControl;
-  private valueChangesSubject = new Subject<any>();
-  public valueChanges: Observable<any> = this.valueChangesSubject.asObservable();
 
-  private _isDisabledFn = () => {
-    return false;
-  }
+  public control: AbstractControl;
+
+  private enumList: any[];
+
+  private valueChangesSubject = new Subject<any>();
+
+  public valueChanges: Observable<any> = this.valueChangesSubject.asObservable();
 
   constructor(public config, control?: AbstractControl ){
     // console.log('FilterControl created with config', config);
@@ -27,6 +27,10 @@ export class FilterControl {
     }
   }
 
+  public getConfig(name): any {
+    return this.config[name];
+  }
+
   get pinned(): boolean {
     return this.config.pinned;
   }
@@ -36,16 +40,16 @@ export class FilterControl {
     this.subscribeToControl(formControl);
   }
 
+  private _isDisabledFn = () => {
+    return false;
+  }
+
 
   // @TODO: return Observable (for not subscribe without needed) with switchPipe
   private subscribeToControl(formControl: AbstractControl): void {
     formControl.valueChanges.pipe(
       distinctUntilChanged()
     ).subscribe(value => {
-      console.log('(FormControl -> FilterControl)', this.name(), value);
-      // we can validate self?
-      // we can inform FilterForm about changes
-      // console.log('FilterControl emit event with self (for FilerForm)', this);
       this.valueChangesSubject.next(value);
     });
   }
@@ -62,22 +66,19 @@ export class FilterControl {
     return this.control.value;
   }
 
-  isDisabled(): boolean {
-    const r = this._isDisabledFn.apply(this, [this]);
-    console.log('_isDisabledFn return ', r);
-    return r;
+  public isDisabled(): boolean {
+    return  this._isDisabledFn.apply(this, [this]);
   }
 
   /**
    * Checks is need to show/render this
    */
-  isShow(): boolean {
+  public isShow(): boolean {
     return !this._isDisabledFn.call(this, arguments);
   }
 
-  isEmpty(): boolean {
-    const v: {} = this.value();
-    // console.log(this.name(), v, typeof v);
+  public isEmpty(): boolean {
+    const v: object = this.value();
     if ($Util.isObject(v)) {
       return Object.values(v as {[s: string]: any}).reduce((empty: boolean, value) => {
         return empty && [null, ''].includes(value);
@@ -86,11 +87,7 @@ export class FilterControl {
     return [null, ''].includes(this.value());
   }
 
-  // private _isGroup() {
-  // }
-
   // ENUMS
-  private enumList: any[];
   private initEnumsList(configEnum): void {
     let enumList = configEnum;
     if ($Util.isFunction(enumList)) {
@@ -106,14 +103,13 @@ export class FilterControl {
       this.enumList = enumList;
     }
   }
-  setEnum(list): void {
+
+  public setEnum(list): void {
     this.enumList = list;
   }
-  getEnum(): any[] {
+
+  public getEnum(): any[] {
     return this.enumList;
-  }
-  getConfig(name): any {
-    return this.config[name];
   }
 
 }

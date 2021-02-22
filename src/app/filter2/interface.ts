@@ -71,7 +71,7 @@ export interface IAttributeFormFilter {
 
 export type AttributeFilterType = string;
 
-export type AttributeFilterValue = string | number | boolean | FilterRangeValue;
+export type AttributeFilterValue = string | number | boolean | Partial<FilterRangeValue>;
 
 export type FilterRangeValue<T = any> = {
   from: T;

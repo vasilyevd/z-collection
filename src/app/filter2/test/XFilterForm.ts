@@ -90,7 +90,7 @@ export class XFilterForm extends BaseFilterForm {
     };
   }
 
-  onChange(changeValue) {
+  onChange(changeValue): void {
     /**
      * 1 - можем просто все значения фильтров выставить в новые.
      *  т.к. мы не знаем что там менялось в других формах - то по сути это и прийдется сделать.
